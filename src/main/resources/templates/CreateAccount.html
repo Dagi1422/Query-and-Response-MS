@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Optional: Custom CSS for additional styling */
+    .create-account-form {
+      width: 300px;
+      margin: auto;
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="create-account-form">
+    <h2 class="text-center">Create Account</h2>
+    <form>
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input th:field="${userDto.username}" type="text" class="form-control" id="userName" name="userName" required>
+		
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input th:field="${userDto.Email}" type="email" class="form-control" id="email" name="email" required>
+		<p th:if="${#fields.hasErrors('Email')}" th:errorclass="text-danger"
+												th:errors="${userDto.Email}"></p>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input th:field="${userDto.password}" type="password" class="form-control" id="password" name="password" required>
+		<p th:if="${#fields.hasErrors('password')}" th:errorclass="text-danger"
+												th:errors="${userDto.password}"></p>
+      </div>
+	  <div class="form-group">
+	          <label for="password">Role</label>
+	          <input th:field="${userDto.role}" type="text" class="form-control" id="role" name="role" required>
+			  <p th:if="${#fields.hasErrors('role')}" th:errorclass="text-danger"
+			  										th:errors="${userDto.role}"></p>
+	        </div>
+      <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+    <div class="text-center mt-3">
+      <p>Already have an account? <a href="#">Log in</a></p>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and dependencies (jQuery, Popper.js) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
